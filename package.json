@@ -1,0 +1,21 @@
+{
+  "name": "serial-port-test",
+  "version": "1.0.0",
+  "description": "Javascript for test UART to STM32 via USB TTL",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.mjs",
+    "scan": "node ./utils/scan-port.mjs",
+    "transmit": "node ./utils/transmit-data.mjs",
+    "recive": "node ./utils/recive-data.mjs"
+  },
+  "author": "ahmadkagendra",
+  "license": "ISC",
+  "devDependencies": {
+    "@serialport/parser-readline": "^13.0.0",
+    "chalk": "^5.6.2",
+    "serialport": "^13.0.0"
+  }
+}
