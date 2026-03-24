@@ -46,7 +46,26 @@ rlInterface.on('line' , function (line) {
         console.log("Exit transmit terminal.")
         return rlInterface.close()
     }
-    port.write(line + '\n');
-    console.log(`Transmit message : ${line}\n`)
-    rlInterface.prompt()
+
+    // IMPORTANT CONFIGURATION!!!
+    const purifyMessage = purify (64 , line)
+    
+    port.write(purifyMessage + '\n' , function (error) {
+        if (error) return console.log(`Transmit message : ${error}\n`)
+        console.log(`Transmit message : ${line}\n`)
+        rlInterface.prompt()
+    });
 })
+
+function purify (size , message) {
+    const length = message.length
+    if (length > size) return message.slice(0 , size)
+
+    console.log("purifying messegae to size 64\n")
+    let outputMessage = message
+    const differentLength = size - message.length
+    for (let index = 0; index < differentLength; index++) {
+        outputMessage += "-"
+    }
+    return outputMessage
+}

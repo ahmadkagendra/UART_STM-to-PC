@@ -10,10 +10,6 @@ const checkConfiguration = portConfig.path  || portConfig.baudRate
 const port = new SerialPort (checkConfiguration ? portConfig : deffaultConfig)
 // const parser = port.pipe(new ReadlineParser({ delimiter: '\r\n' }));
 
-port.on('data' , function(data) {
-    console.log(`📥 [${new Date().toLocaleTimeString()}] ${data}`);
-})
-
 // parser.on('data', (data) => {
 //     console.log(`📥 [${new Date().toLocaleTimeString()}] ${data}`);
 // });
@@ -42,4 +38,6 @@ if (!port.opening) {
     })
 }
 
-
+port.on('data' , function(data) {
+    console.log(`📥 [${new Date().toLocaleTimeString()}] ${data}`);
+})

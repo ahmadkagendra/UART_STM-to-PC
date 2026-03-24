@@ -30,22 +30,30 @@ const rlConfig = {
     output : process.stdout
 }
 const rlInterface = readline.createInterface(rlConfig)
+
 rlInterface.on('close' , function () {
     rlInterface.close()
-    // console.log("\nExit terinal...")
+    console.log("\nExit terinal...")
     process.exit()
 })
 if (!portConfig.path || !portConfig.baudRate) {
     await rlInterfaceSetConfiguration()
 } else {
+    await changeQuestion()
+}
+
+async function changeQuestion () {
     const change = await rlInterface.question("Are you want to change configuration (y/n) : ")
     const state = change == "y" ? true : false
+    
+    if (!["y" , "n"].includes(change)) {
+        console.log("\nInvalid command\n")
+        return await changeQuestion()
+    }
     if (state) {
         await rlInterfaceSetConfiguration()
     }
 }
-
-
 
 async function rlInterfaceSetConfiguration () {
     const config_port = await rlInterface.question("Enter port : ")
@@ -56,12 +64,13 @@ async function rlInterfaceSetConfiguration () {
     portConfig.baudRate = Number(config_baudRate)
     portConfig.autoOpen = config_autoOpen == "true" ? true : false
 
-    console.log("Apply configuration...\n")
+    console.log("\nApply configuration...\n")
     const writerConfig = await writeConfig(defaultConfig , portConfig)
     if (writeConfig) {
-        console.log("Configuration successfully applied.")
+        console.log("Configuration successfully applied.\n")
     } else {
-        console.log("Configuration failled to apply.")
+        console.log("Configuration failled to apply.\n")
+        return await rlInterfaceSetConfiguration()
     }
 }
 
