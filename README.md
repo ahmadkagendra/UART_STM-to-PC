@@ -3,8 +3,12 @@ UART is a type of serial communication between devices for exchanging data. UART
 This repository contains documentation for UART communication between an STM32 and a PC via USB TTL, using JavaScript and C as the base languages.
 
 ### Required Knowledge : 
-- Bassic javascript
+- Bassic Javascript
 - Node Js
 - NPM
 - STM32
 
+### Function : 
+- Data Tranmiter
+- Data Reciver
+- Data Frame Debuger 
