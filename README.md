@@ -12,3 +12,50 @@ This repository contains documentation for UART communication between an STM32 a
 - Data Tranmiter
 - Data Reciver
 - Data Frame Debuger 
+
+# Quick Start
+
+## Instalation :
+Before using the functionality, it is necessary to install the NPM package.
+```cmd
+$ npm install --save-dev
+```
+Make sure the package has been successfully installed.
+
+## Scan and Configuration :
+- #### Scan Port
+  
+After the package is successfully installed, the application can be used. Scan USB ports to detect ports that are read on the computer/PC.
+```cmd
+$ npm run scan
+```
+That code open file `./utils/scan-port.mjs`
+- #### Configuration Port
+
+Berofe use transmit and recive functionality, it is necessary to configure the port according to the port you want to access.
+
+```cmd
+$ npm start
+```
+That code open file `./index.mjs`
+
+##### Configuration Note :
+  - `Bautrate`
+  - `Port Name`
+
+## Transmit and Recive
+- #### Transmit
+To use transmit functionality on the UART bus. `Make sure the port is accessible`
+```git
+$ npm run transmit
+```
+That code open file `./utils/transmit-data.mjs`
+
+Type data on the command line to send UART data.
+
+- #### Recive
+To use recive functionality on the UART bus. `Make sure the port is accessible`
+```git
+$ npm run transmit
+```
+That code open file `./utils/recive-data.mjs`
