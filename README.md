@@ -43,7 +43,7 @@ That code open file `./index.mjs`
   - `Bautrate`
   - `Port Name`
 
-## Transmit and Recive
+## Transmit and Recive : 
 - #### Transmit
 To use transmit functionality on the UART bus. `Make sure the port is accessible`
 ```git
