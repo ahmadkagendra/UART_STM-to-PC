@@ -59,3 +59,8 @@ To use recive functionality on the UART bus. `Make sure the port is accessible`
 $ npm run transmit
 ```
 That code open file `./utils/recive-data.mjs`
+
+## Explained Code : 
+- Main script : [index.mjs](docs/index.mjs)
+- Utility Script : [recive-data.mjs](docs/recive-data.mjs) , [transmit-data.mjs](docs/transmit-data.mjs) , [scan-port.mjs](docs/scan-port.mjs)
+- Source Script : [read-configuration.mjs](docs/read-config.mjs) , [write-configuration.mjs](docs/write-config.mjs)
